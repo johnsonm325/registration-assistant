@@ -2,22 +2,6 @@
 @import "~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all";
 @import "~@redhat-cloud-services/frontend-components/index.css";
 
-.pf-c-label.pf-m-green {
-    background-color: #f3faf2;
-}
-
-.pf-c-label.pf-m-red {
-    background-color: #faeae8;
-}
-
-.pf-c-label.pf-m-orange {
-    background-color: #fdf7e7;
-}
-
-.pf-c-label.pf-m-blue {
-    background-color: #e7f1fa;
-}
-
-.pf-c-label.pf-m-purple {
-    background-color: #f2f0fc;
+.ins-c-icon {
+    margin-right: var(--pf-global--spacer--sm);
 }
