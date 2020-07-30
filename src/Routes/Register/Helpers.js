@@ -3,7 +3,7 @@
 import './Helpers.scss';
 
 import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons';
-import { Text, TextContent, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
+import { Text, TextContent, TextList, TextListItem, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
 import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/Title';
 
 import { Button } from '@patternfly/react-core/dist/esm/components/Button/Button';
@@ -113,6 +113,36 @@ const schema = intl => ({
             {manualInstall(intl)}
         </React.Fragment>,
         condition: [{ when: 'automation', is: 'puppet' }, { when: 'how-are-systems-managed', is: 'rhsm' }]
+    }, {
+        component: componentTypes.RADIO,
+        name: 'rhs-automation',
+        initializeOnMount: true,
+        initialValue: 'puppet',
+        clearOnUnmount: true,
+        label: intl.formatMessage(messages.rhsChooseConfigMan),
+        description: intl.formatMessage(messages.rhsChooseConfig),
+        condition: { when: 'how-are-systems-managed', is: 'rhs' },
+        options: [
+            { label: intl.formatMessage(messages.ansible), value: 'ansible' },
+            { label: intl.formatMessage(messages.puppet), value: 'puppet' }
+        ]
+    }, {
+        component: 'plain-text',
+        name: 'rhsm-puppet',
+        label: <React.Fragment>
+            {stepTitle(intl, intl.formatMessage(messages.deployRHI), 2)}
+            <Button variant="primary" className='pf-m-display-lg' icon={<DownloadIcon />} component='a' href='https://forge.puppet.com/lphiri/access_insights_client'>
+                {intl.formatMessage(messages.downloadModule)}
+            </Button>
+            <TextContent>
+                <Text component={TextVariants.p}>{intl.formatMessage(messages.puppetAutomatedInstall, {
+                    class: <strong>access_insights_clients</strong>
+                })}</Text>
+                <Text component={TextVariants.p}>{intl.formatMessage(messages.puppetAutomatedInstallMoInfo)}</Text>
+            </TextContent>
+            <Button component='a' variant='primary' href='https://access.redhat.com/solutions/1583183' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>
+        </React.Fragment>,
+        condition: [{ when: 'rhs-automation', is: 'puppet' }, { when: 'how-are-systems-managed', is: 'rhs' }]
     }
     ]
 });
@@ -167,4 +197,20 @@ const RegisterWithRhsm = ({ intl }) => <React.Fragment>
     </TextContent>
 </React.Fragment>;
 
-export { learnMore, schema, DataCollection, SetupConfigure, SmartManagement, RegisterWithRhsm };
+const SubscribetoSatellite = ({ intl }) => <React.Fragment>
+    <Title headingLevel='h3'>{intl.formatMessage(messages.subscribeSatellite)}</Title>
+    <TextContent>
+        <Text component={TextVariants.p}>
+            {intl.formatMessage(messages.subscribeSatelliteBody)}
+        </Text>
+        <Title headingLevel='h4'>{intl.formatMessage(messages.verifySatellite)}</Title>
+        <TextList>
+            <TextListItem>{intl.formatMessage(messages.verifySatelliteStepOne)}</TextListItem>
+            <TextListItem>{intl.formatMessage(messages.verifySatelliteStepTwo)}</TextListItem>
+        </TextList>
+        <Text component={TextVariants.small}>{intl.formatMessage(messages.verifySatelliteNote,
+            { link: <Button isInline component='a' variant='link' href='https://cert-api.accesss.redhat.com' >https://cert-api.accesss.redhat.com</Button> })}</Text>
+    </TextContent>
+</React.Fragment>;
+
+export { learnMore, schema, DataCollection, SetupConfigure, SmartManagement, RegisterWithRhsm, SubscribetoSatellite };
