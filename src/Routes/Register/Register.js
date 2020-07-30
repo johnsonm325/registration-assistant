@@ -1,6 +1,6 @@
 import './Register.scss';
 
-import { DataCollection, RegisterWithRhsm, SetupConfigure, SmartManagement, schema } from './Helpers';
+import { DataCollection, RegisterWithRhsm, SetupConfigure, SmartManagement, SubscribetoSatellite, schema } from './Helpers';
 import { Split, SplitItem } from '@patternfly/react-core/dist/esm/layouts/Split/index';
 import { Stack, StackItem } from '@patternfly/react-core/dist/esm/layouts/Stack/index';
 
@@ -43,11 +43,11 @@ const Register = () => {
                     <ul>
                         <li>
                             <FormSpy>
-                                {({ values }) => {
-                                    return values['how-are-systems-managed'] === 'rhsm' ? (
-                                        <RegisterWithRhsm intl={intl} />
-                                    ) : null;
-                                }}
+                                {({ values }) => values['how-are-systems-managed'] === 'rhsm' ? (
+                                    <RegisterWithRhsm intl={intl} />
+                                ) : values['how-are-systems-managed'] === 'rhs' ?
+                                    <SubscribetoSatellite intl={intl} /> : null
+                                }
                             </FormSpy>
                         </li>
                         <Divider component='li' />
@@ -55,8 +55,12 @@ const Register = () => {
                         <Divider component='li' />
                         <li> <SetupConfigure intl={intl} /></li>
                         <Divider component='li' />
-                        <li><SmartManagement intl={intl} /></li>
-                        <Divider component='li' />
+                        <FormSpy>
+                            {({ values }) => values['how-are-systems-managed'] !== 'rhs' ? <React.Fragment>
+                                <li><SmartManagement intl={intl} /></li><Divider component='li' />
+                            </React.Fragment> : null
+                            }
+                        </FormSpy>
                     </ul>
                 </StackItem>
             </Stack>
