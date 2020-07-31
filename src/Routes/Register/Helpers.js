@@ -3,15 +3,17 @@
 import './Helpers.scss';
 
 import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons';
-import { Text, TextContent, TextList, TextListItem, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
+import { Text, TextContent, TextList, TextListItem, TextListVariants, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
 import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/Title';
 
 import { Button } from '@patternfly/react-core/dist/esm/components/Button/Button';
+import { ExpandableSection } from '@patternfly/react-core/dist/esm/components/ExpandableSection/ExpandableSection';
 import React from 'react';
 import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
 
 const learnMore = (intl, url = '#') => <Button className='learnMore' isInline component='a' variant='link' href={url} >{intl.formatMessage(messages.learnMore)}</Button>;
+const insightsDashboard = intl => <Button component='a' variant='primary' href='https://cloud.redhat.com/insights/' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>;
 
 const rhelNoAutomationSnippet = intl => <React.Fragment>
     <pre className='ins-c-gray'>
@@ -19,7 +21,7 @@ const rhelNoAutomationSnippet = intl => <React.Fragment>
             [root@server -]# insights-client --register
         </code>
     </pre>
-    <Button component='a' variant='primary' href='https://access.redhat.com/solutions/1583183' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>
+    {insightsDashboard(intl)}
 </React.Fragment>;
 
 const manualInstall = intl => <React.Fragment>
@@ -120,7 +122,7 @@ const schema = intl => ({
         initialValue: 'puppet',
         clearOnUnmount: true,
         label: intl.formatMessage(messages.rhsChooseConfigMan),
-        description: intl.formatMessage(messages.rhsChooseConfig),
+        helperText: intl.formatMessage(messages.rhsChooseConfig),
         condition: { when: 'how-are-systems-managed', is: 'rhs' },
         options: [
             { label: intl.formatMessage(messages.ansible), value: 'ansible' },
@@ -140,9 +142,47 @@ const schema = intl => ({
                 })}</Text>
                 <Text component={TextVariants.p}>{intl.formatMessage(messages.puppetAutomatedInstallMoInfo)}</Text>
             </TextContent>
-            <Button component='a' variant='primary' href='https://access.redhat.com/solutions/1583183' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>
+            {insightsDashboard(intl)}
         </React.Fragment>,
         condition: [{ when: 'rhs-automation', is: 'puppet' }, { when: 'how-are-systems-managed', is: 'rhs' }]
+    }, {
+        component: 'plain-text',
+        name: 'rhsm-puppet',
+        label: <React.Fragment>
+            {stepTitle(intl, intl.formatMessage(messages.deployingRHInsights), 2)}
+            <TextContent>
+                <Text component={TextVariants.p}>{intl.formatMessage(messages.youCanAutomate, {
+                    role: <strong>RedHatInsights.insights-client</strong>,
+                    link: <Button isInline component='a' variant='link' href='https://access.redhat.com/documentation/en-us/red_hat_satellite/6.6/html/administering_red_hat_satellite/chap-Red_Hat_Satellite-Administering_Red_Hat_Satellite-Managing_Ansible_Roles'>{intl.formatMessage(messages.managingAnsibleRoles)}</Button>
+                })}</Text>
+                <TextList component={TextListVariants.ol}>
+                    <TextListItem>
+                        <Text component={TextVariants.p}>{intl.formatMessage(messages.rhsChooseConfigStepOne, {
+                            role: <strong>RedHatInsights.insights-client</strong>,
+                            newLine: <br />,
+                            linkOne: <Button isInline component='a' variant='link' href='https://access.redhat.com/documentation/en-us/red_hat_satellite/6.6/html/managing_hosts/Administering_Hosts#creating-a-host-in-satellite'>{intl.formatMessage(messages.sectionTwo)}</Button>,
+                            linkTwo: <Button isInline component='a' variant='link' href='https://access.redhat.com/documentation/en-us/red_hat_satellite/6.6/html/managing_hosts/Using_Ansible_Roles'>{intl.formatMessage(messages.chapterEight)}</Button>
+                        })}</Text>
+                    </TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.rhsChooseConfigStepTwo)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.rhsChooseConfigStepThree)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.rhsChooseConfigStepFour)}</TextListItem>
+                </TextList>
+            </TextContent>
+
+            <ExpandableSection toggleText={intl.formatMessage(messages.additionalInfo)}>
+                <TextList>
+                    <TextListItem>{intl.formatMessage(messages.toApply)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.toView)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.ifYouHaveProblems)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.youCanChange, {
+                        link: <Button isInline component='a' variant='link' href='https://access.redhat.com/documentation/en-us/red_hat_insights/1.0/html/client_configuration_guide_for_red_hat_insights/changing-the-client-schedule'>{intl.formatMessage(messages.changingTheInsights)}</Button>
+                    })}</TextListItem>
+                </TextList>
+            </ExpandableSection>
+            {insightsDashboard(intl)}
+        </React.Fragment>,
+        condition: [{ when: 'rhs-automation', is: 'ansible' }, { when: 'how-are-systems-managed', is: 'rhs' }]
     }
     ]
 });

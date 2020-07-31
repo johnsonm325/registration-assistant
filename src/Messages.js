@@ -72,6 +72,21 @@ export default defineMessages({
         description: 'Text for rhsm puppet automated installation mo info',
         defaultMessage: 'For more information on this topic, refer to the Creating a Host Group chapter in the official Satellite 6 User Guide.'
     },
+    deployingRHInsights: {
+        id: 'deployingRHInsights',
+        description: 'Deploying Red Hat Insights using the Ansible Role included with your Smart Management entitlement',
+        defaultMessage: 'Deploying Red Hat Insights using the Ansible Role included with your Smart Management entitlement'
+    },
+    youCanAutomate: {
+        id: 'youCanAutomate',
+        description: 'You can automate the installation and registration of hosts with Red Hat Insights using the {role} Ansible role. For more information about adding this role to your Satellite, see {link}.',
+        defaultMessage: 'You can automate the installation and registration of hosts with Red Hat Insights using the {role} Ansible role. For more information about adding this role to your Satellite, see {link}.'
+    },
+    managingAnsibleRoles: {
+        id: 'managingAnsibleRoles',
+        description: 'Managing Ansible Roles',
+        defaultMessage: 'Managing Ansible Roles'
+    },
     hostGroup: {
         id: 'hostGroup',
         description: 'Host Group chapter',
@@ -116,6 +131,63 @@ export default defineMessages({
         id: 'rhsChooseConfig',
         description: 'Note: you can automate the installation and registration of systems with Ansible, included with your Red Hat Enterprise Linux entitlement.',
         defaultMessage: 'Note: you can automate the installation and registration of systems with Ansible, included with your Red Hat Enterprise Linux entitlement.'
+    },
+    rhsChooseConfigStepOne: {
+        id: 'rhsChooseConfigStepOne',
+        description: 'Add the RedHatInsights.insights-client role to the hosts',
+        defaultMessage: `Add the RedHatInsights.insights-client role to the hosts. {newLine}
+        For new hosts, see {linkOne}. {newLine}
+        For existing hosts, see {linkTwo}.`
+    },
+    rhsChooseConfigStepTwo: {
+        id: 'rhsChooseConfigStepTwo',
+        description: 'Step two',
+        defaultMessage: 'To run the RedHatInsights.insights-client role on your host, navigate to Hosts > All Hosts and click the name of the host that you want to use.'
+    },
+    rhsChooseConfigStepThree: {
+        id: 'rhsChooseConfigStepThree',
+        description: 'Step 3',
+        defaultMessage: 'Click the Run Ansible roles button.'
+    },
+    rhsChooseConfigStepFour: {
+        id: 'rhsChooseConfigStepFour',
+        description: 'Red Hat Subscription Manager',
+        defaultMessage: 'See host on the Insights > Overview page of the Satellite web UI'
+    },
+    sectionTwo: {
+        id: 'sectionTwo',
+        description: 'Section 2.1',
+        defaultMessage: 'Section 2.1, "Creating a Host in Red Hat Satellite"'
+    },
+    chapterEight: {
+        id: 'chapterEight',
+        description: 'Chapter 8, Using Ansible Roles',
+        defaultMessage: 'Chapter 8, Using Ansible Roles'
+    },
+    toApply: {
+        id: 'toApply',
+        description: 'To apply any system updates to the Red Hat Insights plug-in, enter httpd restart after updating.',
+        defaultMessage: 'To apply any system updates to the Red Hat Insights plug-in, enter httpd restart after updating.'
+    },
+    toView: {
+        id: 'toView',
+        description: 'To view the logs for Red Hat Insights and all plug-ins, go to /var/log/foreman/production.log.',
+        defaultMessage: 'To view the logs for Red Hat Insights and all plug-ins, go to /var/log/foreman/production.log.'
+    },
+    ifYouHaveProblems: {
+        id: 'ifYouHaveProblems',
+        description: 'If you have problems connecting to Red Hat Insights, ensure that your certificates are up-to-date. Refresh your subscription manifest to update your certificates.',
+        defaultMessage: 'If you have problems connecting to Red Hat Insights, ensure that your certificates are up-to-date. Refresh your subscription manifest to update your certificates.'
+    },
+    youCanChange: {
+        id: 'youCanChange',
+        description: 'Red Hat Subscription Manager',
+        defaultMessage: 'You can change the default schedule for running insights-client by configuring insights-client.timer on a host. For more information, see {link} in the Client Configuration Guide for Red Hat Insights.'
+    },
+    changingTheInsights: {
+        id: 'changingTheInsights',
+        description: 'Changing the insights-client schedule',
+        defaultMessage: 'Changing the insights-client schedule'
     },
     rhsm: {
         id: 'rhsm',
@@ -251,5 +323,10 @@ export default defineMessages({
         id: 'no',
         description: 'No',
         defaultMessage: 'No'
+    },
+    additionalInfo: {
+        id: 'additionalInfo',
+        description: 'Additional Information',
+        defaultMessage: 'Additional Information'
     }
 });
