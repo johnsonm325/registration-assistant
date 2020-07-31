@@ -15,21 +15,27 @@ import messages from '../../Messages';
 const learnMore = (intl, url = '#') => <Button className='learnMore' isInline component='a' variant='link' href={url} >{intl.formatMessage(messages.learnMore)}</Button>;
 const insightsDashboard = intl => <Button component='a' variant='primary' href='https://cloud.redhat.com/insights/' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>;
 
-const rhelNoAutomationSnippet = intl => <React.Fragment>
+const registerInsightsCodeSnippet =
     <pre className='ins-c-gray'>
         <code>
-            [root@server -]# insights-client --register
+            [root@server ~]# insights-client --register
         </code>
-    </pre>
+    </pre>;
+
+const installInsightsCodeSnippet =
+    <pre className='ins-c-gray'>
+        <code>
+            [root@server ~]# yum install insights-client
+        </code>
+    </pre>;
+
+const rhelNoAutomationSnippet = intl => <React.Fragment>
+    {registerInsightsCodeSnippet}
     {insightsDashboard(intl)}
 </React.Fragment>;
 
 const manualInstall = intl => <React.Fragment>
-    <pre className='ins-c-gray'>
-        <code>
-            [root@server -]# yum install insights-client
-        </code>
-    </pre>
+    {installInsightsCodeSnippet}
     {rhelNoAutomationSnippet(intl)}
 </React.Fragment>;
 
@@ -53,7 +59,7 @@ const schema = intl => ({
         initialValue: 'rhel8',
         clearOnUnmount: true,
         label: intl.formatMessage(messages.operatingSystem),
-        condition: { when: 'how-are-systems-managed', is: 'rhsm' },
+        condition: { when: 'how-are-systems-managed', pattern: /rhsm|rhui/ },
         options: [
             { label: intl.formatMessage(messages.rhel8), value: 'rhel8' },
             { label: intl.formatMessage(messages.rhel76), value: 'rhel76' }
@@ -130,7 +136,7 @@ const schema = intl => ({
         ]
     }, {
         component: 'plain-text',
-        name: 'rhsm-puppet',
+        name: 'rhs-puppet',
         label: <React.Fragment>
             {stepTitle(intl, intl.formatMessage(messages.deployRHI), 2)}
             <Button variant="primary" className='pf-m-display-lg' icon={<DownloadIcon />} component='a' href='https://forge.puppet.com/lphiri/access_insights_client'>
@@ -147,7 +153,7 @@ const schema = intl => ({
         condition: [{ when: 'rhs-automation', is: 'puppet' }, { when: 'how-are-systems-managed', is: 'rhs' }]
     }, {
         component: 'plain-text',
-        name: 'rhsm-puppet',
+        name: 'rhs-ansible',
         label: <React.Fragment>
             {stepTitle(intl, intl.formatMessage(messages.deployingRHInsights), 2)}
             <TextContent>
@@ -183,6 +189,46 @@ const schema = intl => ({
             {insightsDashboard(intl)}
         </React.Fragment>,
         condition: [{ when: 'rhs-automation', is: 'ansible' }, { when: 'how-are-systems-managed', is: 'rhs' }]
+    }, {
+        component: 'plain-text',
+        name: 'rhui-first-part',
+        label: <React.Fragment>
+            {stepTitle(intl, intl.formatMessage(messages.deployInsightsOnCloudTitle), 2)}
+            <TextContent>
+                <Text component={TextVariants.p}>{intl.formatMessage(messages.deployInsightsOnCloudText)}</Text>
+            </TextContent>
+        </React.Fragment>,
+        condition: [{ when: 'how-are-systems-managed', is: 'rhui' }]
+    }, {
+        component: 'plain-text',
+        name: 'rhui-rhel76-optional-part',
+        label: <React.Fragment>
+            <TextContent>
+                <Text component={TextVariants.h3}>{intl.formatMessage(messages.installInsightsClient)}</Text>
+                {installInsightsCodeSnippet}
+            </TextContent>
+        </React.Fragment>,
+        condition: [{ when: 'how-are-systems-managed', is: 'rhui' }, { when: 'rhel-os', is: 'rhel76' }]
+    }, {
+        component: 'plain-text',
+        name: 'rhui-last-part',
+        label: <React.Fragment>
+            <TextContent>
+                <Text component={TextVariants.h3}>{intl.formatMessage(messages.configureBasicAuthTitle)}</Text>
+                <TextList component={TextListVariants.ol}>
+                    <TextListItem>{intl.formatMessage(messages.configureBasicAuthStep1)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.configureBasicAuthStep2)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.configureBasicAuthStep3)}</TextListItem>
+                    <TextListItem>{intl.formatMessage(messages.configureBasicAuthStep4)}</TextListItem>
+                </TextList>
+                <Text component={TextVariants.small}>{intl.formatMessage(messages.insightsWithBasicAuthNote,
+                    { visitOurDocumentation: <Button isInline component='a' variant='link' target="_blank" href='https://access.redhat.com/articles/4038251' >{intl.formatMessage(messages.visitOurDocumentation)}</Button> })}
+                </Text>
+                <Text component={TextVariants.h3}>{intl.formatMessage(messages.registerInsightsClient)}</Text>
+                {rhelNoAutomationSnippet(intl)}
+            </TextContent>
+        </React.Fragment>,
+        condition: [{ when: 'how-are-systems-managed', is: 'rhui' }]
     }
     ]
 });
@@ -225,8 +271,7 @@ const RegisterWithRhsm = ({ intl }) => <React.Fragment>
         </Text>
         <pre>
             <code>
-                [root@server ~]# subscription-manager <br />
-                register --auto-attach
+                [root@server ~]# subscription-manager register --auto-attach
             </code>
         </pre>
         <Text component={TextVariants.small}>{intl.formatMessage(messages.registerRhsmTextNote,
@@ -253,4 +298,16 @@ const SubscribetoSatellite = ({ intl }) => <React.Fragment>
     </TextContent>
 </React.Fragment>;
 
-export { learnMore, schema, DataCollection, SetupConfigure, SmartManagement, RegisterWithRhsm, SubscribetoSatellite };
+const EnablingInsightsOnRhui = ({ intl }) => <React.Fragment>
+    <Title headingLevel='h3'>{intl.formatMessage(messages.enablingInsightsOnRhuiTitle)}</Title>
+    <TextContent>
+        <Text component={TextVariants.p}>{intl.formatMessage(messages.enablingInsightsOnRhuiParagraph1,
+            { createRedHatAccountInstructions: <Button isInline component='a' variant='link' target="_blank" href='https://access.redhat.com/products/red-hat-insights#new-red-hat-account' >{intl.formatMessage(messages.createRedHatAccountInstructions)}</Button> })}
+        </Text>
+        <Text component={TextVariants.p}>{intl.formatMessage(messages.enablingInsightsOnRhuiParagraph2,
+            { cloudAccessDocumentation: <Button isInline component='a' variant='link' target="_blank" href='https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index' >{intl.formatMessage(messages.cloudAccessDocumentation)}</Button> })}
+        </Text>
+    </TextContent>
+</React.Fragment>;
+
+export { learnMore, schema, DataCollection, SetupConfigure, SmartManagement, RegisterWithRhsm, SubscribetoSatellite, EnablingInsightsOnRhui };
