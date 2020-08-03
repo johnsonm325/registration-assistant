@@ -16,10 +16,13 @@ jobs:
   - stage: Test
     script: npm run test && npx codecov
   - stage: Deploy
-    script: npm run deploy && curl -sSL https://raw.githubusercontent.com/RedHatInsights/registration-assistant/master/src/bootstrap.sh | bash -s
+    script: npm run travis:verify && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
 env:
   global:
   - REPO="git@github.com:RedHatInsights/registration-assistant-build"
   - REPO_DIR="registration-assistant-build"
   - BRANCH=${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}
   - NODE_OPTIONS="--max-old-space-size=4096 --max_old_space_size=4096"
+cache:
+  directories:
+    - "$HOME/.npm"
