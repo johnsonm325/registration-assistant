@@ -1,5 +1,5 @@
 const SECTION = 'insights';
-const APP_ID = 'registration-assistant';
+const APP_ID = 'registration';
 const FRONTEND_PORT = 8002;
 const routes = {};
 
