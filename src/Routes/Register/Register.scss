@@ -13,6 +13,10 @@
         .pf-l-stack {
             padding: var(--pf-global--gutter--md) var(--pf-global--gutter--md) 0 0;
         }
+
+        pre {
+            background-color: var(--pf-global--BackgroundColor--light-100);
+        }
     }
 }
 

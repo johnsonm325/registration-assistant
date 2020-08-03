@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import './Helpers.scss';
 
-import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons/dist/esm/icons';
+import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons/dist/esm/icons/';
 import { ConfigureClientTab, InstallAnsibleTab } from '../../Components/AnsibleTabs/AnsibleTabs';
 import { Text, TextContent, TextList, TextListItem, TextListVariants, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
 import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/Title';
