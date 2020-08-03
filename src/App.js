@@ -15,7 +15,7 @@ registry.register({ notifications });
 const App = (props) => {
     async function initChrome() {
         insights.chrome.init();
-        insights.chrome.identifyApp('registartion-assistant');
+        insights.chrome.identifyApp('registration-assistant');
     }
 
     useEffect(() => {
