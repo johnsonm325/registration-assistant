@@ -273,7 +273,7 @@ const schema = intl => ({
 
 const DataCollection = ({ intl }) => <React.Fragment>
     <Title headingLevel='h4'><ShieldAltIcon size='md' className='ins-c-icon' />{intl.formatMessage(messages.dataCollection)}
-        {learnMore(intl, 'https://marvelapp.com/prototype/77d4f5b/screen/71352111')}
+        {learnMore(intl, 'https://access.redhat.com/articles/1598863')}
     </Title>
 </React.Fragment>;
 
