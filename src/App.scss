@@ -1,21 +1,122 @@
 // Importing Global Variables
+@import "~@patternfly/patternfly/sass-utilities/_all";
 @import "~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all";
 @import "~@redhat-cloud-services/frontend-components/index.css";
 
-.ins-c-icon {
-    margin-right: var(--pf-global--spacer--sm);
+// Base
+.ins-c-registration-assistant {
+
+    pre {
+        background-color: var(--pf-global--palette--black-150);
+        border: var(--pf-global--BorderWidth--sm) solid var(--pf-global--palette--black-200);
+        padding: var(--pf-global--spacer--md);
+        overflow: auto;
+        white-space: pre-wrap;
+        margin-top: var(--pf-global--spacer--lg);
+    }
+
+    pre + pre {
+        margin-top: var(--pf-global--spacer--md);
+    }
 }
 
-pre {
-    background-color: var(--pf-global--BackgroundColor--light-300);
-    border-radius: var(--pf-global--BorderRadius--sm);
-    padding: var(--pf-global--spacer--md);
-    font-size: small;
-    overflow: auto;
+// Step title
+.pf-c-title.ins-c-step-title,
+.pf-c-content .pf-c-title.ins-c-step-title {
+    margin-bottom: var(--pf-global--spacer--md);
 }
 
-.pf-c-content {
-    p {
-        margin: var(--pf-global--spacer--md) 0 var(--pf-global--spacer--md) 0;
+// Content title
+.pf-c-title.ins-c-content-title,
+.ins-c-content-title {
+    font-family: var(--pf-global--FontFamily--sans-serif);
+    font-size: var(--pf-global--FontSize--lg);
+
+    .pf-c-drawer__panel & {
+        margin-bottom: var(--pf-global--spacer--md);
+    }
+
+    &.ins-m-font-light {
+        font-weight: var(--pf-global--FontWeight--light);
+    }
+
+    &.ins-m-font-normal {
+        font-weight: var(--pf-global--FontWeight--normal);
+    }
+
+    &.ins-m-font-semi-bold {
+        font-weight: var(--pf-global--FontWeight--semi-bold);
+    }
+
+    &.ins-m-font-bold {
+        font-weight: var(--pf-global--FontWeight--bold);
+    }
+}
+
+// Title group
+.ins-c-title-group {
+    display: grid;
+    grid-gap: var(--pf-global--spacer--sm);
+    grid-template-columns: 2rem auto;
+    align-items: center;
+
+    .pf-c-title,
+    .ins-c-title {
+        display: inline;
+        font-family: var(--pf-global--FontFamily--sans-serif);
+        font-size: var(--pf-global--FontSize--sm);
+        font-weight: var(--pf-global--FontWeight--semi-bold);
+    }
+
+    .ins-c-icon {
+        margin-right: var(--pf-global--spacer--sm);
+    }
+}
+
+// Helper text
+.pf-c-form__helper-text {
+    span {
+        display: block;
+        max-width: 500px;
+    }
+
+    // use this modifier when helper text appears as a sibling of .pf-c-form__group instead of a child
+    &.ins-m-conditional-helper {
+        --pf-c-content--MarginBottom: 0;
+
+        margin-top: calc((var(--pf-c-form--GridGap) * -1) + var(--pf-c-form__helper-text--MarginTop));
+    }
+
+    &.ins-m-light {
+        --pf-c-form__helper-text--Color: var(--pf-global--secondary-color--100);
+    }
+}
+
+// Learn more link
+.ins-c-learn-more {
+    font-size: var(--pf-global--FontSize--sm);
+    white-space: nowrap;
+
+    p & {
+        margin-left: var(--pf-global--spacer--sm);
+    }
+}
+
+// Dashboard link
+.ins-c-dashboard-link {
+    margin-top: var(--pf-global--spacer--xl);
+}
+
+// Drawer panel
+.pf-c-drawer__panel {
+    &.ins-m-light-300 {
+        background-color: var(--pf-global--BackgroundColor--light-300);
+    }
+}
+
+// Overflow wrapper
+.ins-c-overflow-content {
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        max-height: 100%;
     }
 }
