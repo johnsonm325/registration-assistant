@@ -62,9 +62,9 @@ const Register = () => {
                                 {intl.formatMessage(messages.preinstallationChecks)}
                             </Title>
                         </Group>
-                        <DrawerActions>
+                        {isExpanded && <DrawerActions>
                             <DrawerCloseButton onClick={onCloseClick} />
-                        </DrawerActions>
+                        </DrawerActions>}
                     </DrawerHead>
                     <DrawerPanelBody>
                         <FormSpy>
