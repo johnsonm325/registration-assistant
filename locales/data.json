@@ -135,6 +135,7 @@
     "exampleUseThree": "Copy the Example Playbook to a file named 'install-insights.yml'.",
     "exampleUseFour": "Run the following command, replacing 'myhost.example.com' with the name of the system where you want to install, configure, and register the insights client.",
     "exampleUseFive": "Note: The ansible-playbook invocation will depend on ansible configuration",
-    "pleaseIndicate": "Please indicate how your systems are managed."
+    "pleaseIndicate": "Please indicate how your systems are managed.",
+    "insightsRegistrationAssistant": "The Insights registration assistant will guide you through the setup process for the Red Hat Insights Client. You will be prompted with a series of questions about your environment to provide you with setup instructions tailored for your environment."
   }
 }

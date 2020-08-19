@@ -683,5 +683,10 @@ export default defineMessages({
         id: 'pleaseIndicate',
         description: 'Please indicate how your systems are managed.',
         defaultMessage: 'Please indicate how your systems are managed.'
+    },
+    insightsRegistrationAssistant: {
+        id: 'insightsRegistrationAssistant',
+        description: 'The Insights registration assistant will',
+        defaultMessage: 'The Insights registration assistant will guide you through the setup process for the Red Hat Insights Client. You will be prompted with a series of questions about your environment to provide you with setup instructions tailored for your environment.'
     }
 });

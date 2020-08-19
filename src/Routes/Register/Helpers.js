@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import './Helpers.scss';
 
 import { ClipboardCopy, ClipboardCopyVariant } from '@patternfly/react-core/dist/esm/components/ClipboardCopy/index';
 import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons/dist/esm/icons/';
