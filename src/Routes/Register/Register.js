@@ -19,8 +19,8 @@ import { Text, TextContent, TextVariants } from '@patternfly/react-core/dist/esm
 
 import { Button } from '@patternfly/react-core/dist/esm/components/Button/index';
 import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/index';
-import FormRenderer from '@data-driven-forms/react-form-renderer';
-import FormSpy from '@data-driven-forms/react-form-renderer/dist/esm/form-spy';
+import FormRenderer from '@data-driven-forms/react-form-renderer/form-renderer/form-renderer';
+import FormSpy from '@data-driven-forms/react-form-renderer/form-spy/form-spy';
 import Group from '../../Components/Group/Group';
 import PropTypes from 'prop-types';
 import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
