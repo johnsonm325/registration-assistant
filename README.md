@@ -22,6 +22,13 @@ Note: You will need to set up the Insights environment if you want to develop wi
 2. ```npm run start```
     - starts webpack bundler and serves the files with webpack dev server
 
+    OR 
+
+2. ```npm run start:proxy```
+  - starts webpack bundler and serves the files with webpack dev server and runs chrome proxy (prod env) (one less terminal required)
+
+3. visit ```https://prod.foo.redhat.com:1337/insights/dashboard/```
+
 3. ```https://prod.foo.redhat.com:1337/insights/registration/```
     - visit this url (or any listed in the spandx config terminal) to checkout the results!
 
@@ -39,7 +46,7 @@ Note: You will need to set up the Insights environment if you want to develop wi
 - The Platform team is using Travis to deploy the application
   - The Platform team will help you set up the Travis instance if this is the route you are wanting to take
 
-## Running locally
+## Running locally (if not using start:proxy script)
 Have [insights-proxy](https://github.com/RedHatInsights/insights-proxy) installed under PROXY_PATH
 
 ```shell
