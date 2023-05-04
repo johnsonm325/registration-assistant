@@ -112,8 +112,8 @@
     "description": "Deploy Red Hat Insights using Puppet in Satellite"
   },
   "deployingRHInsights": {
-    "defaultMessage": "Deploying Red Hat Insights using the Ansible Role included with your Smart Management entitlement",
-    "description": "Deploying Red Hat Insights using the Ansible Role included with your Smart Management entitlement"
+    "defaultMessage": "Deploying Red Hat Insights using the Ansible Role included with your Satellite entitlement",
+    "description": "Deploying Red Hat Insights using the Ansible Role included with your Satellite entitlement"
   },
   "detectAndNotify": {
     "defaultMessage": "Detect and be notified of system configuration changes using Custom Policies",
@@ -416,8 +416,8 @@
     "description": "Title"
   },
   "rhSM": {
-    "defaultMessage": "Red Hat® Smart Management",
-    "description": "Red Hat® Smart Management"
+    "defaultMessage": "Red Hat® Satellite",
+    "description": "Red Hat® Satellite"
   },
   "rhSupported": {
     "defaultMessage": "Red Hat-supported versions",

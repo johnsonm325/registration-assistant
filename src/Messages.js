@@ -88,9 +88,9 @@ export default defineMessages({
   deployingRHInsights: {
     id: 'deployingRHInsights',
     description:
-      'Deploying Red Hat Insights using the Ansible Role included with your Smart Management entitlement',
+      'Deploying Red Hat Insights using the Ansible Role included with your Satellite entitlement',
     defaultMessage:
-      'Deploying Red Hat Insights using the Ansible Role included with your Smart Management entitlement',
+      'Deploying Red Hat Insights using the Ansible Role included with your Satellite entitlement',
   },
   youCanAutomate: {
     id: 'youCanAutomate',
@@ -375,10 +375,10 @@ export default defineMessages({
     defaultMessage:
       'Detect and be notified of system configuration changes using Custom Policies',
   },
-  rhSM: {
+  rhS: {
     id: 'rhSM',
-    description: 'Red Hat® Smart Management',
-    defaultMessage: 'Red Hat® Smart Management',
+    description: 'Red Hat® Satellite',
+    defaultMessage: 'Red Hat® Satellite',
   },
   combineTheFlexible: {
     id: 'combineTheFlexible',

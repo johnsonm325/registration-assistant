@@ -694,11 +694,11 @@ const SetupConfigure = ({ intl }) => (
   </Group>
 );
 
-const SmartManagement = ({ intl }) => (
+const Satellite = ({ intl }) => (
   <Group type="drawer-group">
     <Group type="title-group">
       <CloudIcon size="md" className="ins-c-icon" />
-      <Title headingLevel="h4">{intl.formatMessage(messages.rhSM)}</Title>
+      <Title headingLevel="h4">{intl.formatMessage(messages.rhS)}</Title>
     </Group>
     <TextContent>
       <Text component={TextVariants.p}>
@@ -838,7 +838,7 @@ export {
   schema,
   DataCollection,
   SetupConfigure,
-  SmartManagement,
+  Satellite,
   RegisterWithRhsm,
   SubscribetoSatellite,
   EnablingInsightsOnRhui,

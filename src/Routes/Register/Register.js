@@ -9,7 +9,7 @@ import {
   EnablingInsightsOnRhui,
   RegisterWithRhsm,
   SetupConfigure,
-  SmartManagement,
+  Satellite,
   SubscribetoSatellite,
   schema,
 } from './Helpers';
@@ -136,7 +136,7 @@ const Register = () => {
             {({ values }) =>
               values['how-are-systems-managed'] !== 'rhs' ? (
                 <DrawerPanelBody>
-                  <SmartManagement intl={intl} />
+                  <Satellite intl={intl} />
                 </DrawerPanelBody>
               ) : null
             }
