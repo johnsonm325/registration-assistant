@@ -705,7 +705,7 @@ const Satellite = ({ intl }) => (
         {intl.formatMessage(messages.combineTheFlexible)}
         {learnMore(
           intl,
-          'https://www.redhat.com/en/technologies/management/smart-management'
+          'https://www.redhat.com/en/technologies/management/satellite'
         )}
       </Text>
     </TextContent>
