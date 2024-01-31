@@ -26,6 +26,7 @@
     "verify": "npm-run-all build lint test"
   },
   "jest": {
+    "test": "TZ=UTC jest --verbose --no-cache",
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.js",
