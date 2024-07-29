@@ -297,7 +297,7 @@ export default defineMessages({
     id: 'deployInsightsOnCloudText',
     description: 'Deploy Red Hat Insights on your cloud infrastructure text',
     defaultMessage:
-      'The following guidance is user who wish to deploy Red Hat Insights on an existing, cloud marketplace-purchased Red Hat Enterprise Linux (RHEL) system managed by Red Hat Update Infrastructure (RHUI).  This include on-demand, hourly systems purchased from CCSP marketplace, as well as systems deployed from Red Hat Gold Images in AWS.  This procedure involves the following tasks:',
+      'Follow these steps to deploy Red Hat Insights on an existing, cloud marketplace-purchased Red Hat Enterprise (RHEL) system managed by Red Hat Update Infrastructure (RHUI). This includes on-demand, hourly systems purchased from CCSP marketplace, as well as systems deployed from Red Hat Gold Images in AWS. To deploy Red Hat Insights:',
   },
   installInsightsClient: {
     id: 'installInsightsClient',
@@ -309,37 +309,59 @@ export default defineMessages({
     description: 'Register the system to Insights',
     defaultMessage: 'Register the system to Insights',
   },
-  configureBasicAuthTitle: {
-    id: 'configureBasicAuthTitle',
-    description: 'Configure basic authentication in insights-client.conf',
+  configureActivationKeysStep1: {
+    id: 'configureActivationKeysStep1',
+    description:
+      'Generate or obtain an activation key ID on the {hybridCloudConsole}',
     defaultMessage:
-      'Configure basic authentication in /etc/insights-client/insights-client.conf',
+      'Generate or obtain an activation key ID on the {hybridCloudConsole}',
   },
-  configureBasicAuthStep1: {
-    id: 'configureBasicAuthStep1',
-    description: 'Modify the auto_config= value to FALSE',
-    defaultMessage: 'Modify the auto_config= value to FALSE',
+  hybridCloudConsole: {
+    id: 'hybridCloudConsole',
+    description: 'Hybrid Cloud Console',
+    defaultMessage: 'Hybrid Cloud Console',
   },
-  configureBasicAuthStep2: {
-    id: 'configureBasicAuthStep2',
-    description: 'Add your Red Hat SSO username to username',
-    defaultMessage: 'Add your Red Hat SSO username to username',
-  },
-  configureBasicAuthStep3: {
-    id: 'configureBasicAuthStep3',
-    description: 'Add your Red Hat SSO password to password',
-    defaultMessage: 'Add your Red Hat SSO password to password',
-  },
-  configureBasicAuthStep4: {
-    id: 'configureBasicAuthStep4',
-    description: 'Save the configuration',
-    defaultMessage: 'Save the configuration',
-  },
-  insightsWithBasicAuthNote: {
-    id: 'insightsWithBasicAuthNote',
-    description: 'Note about Insights with basic authentication',
+  configureActivationKeysStep2: {
+    id: 'configureActivationKeysStep2',
+    description:
+      'Run the following command on the host, replacing and with your information',
     defaultMessage:
-      'Note: To read more about using Red Hat Insights with basic authentication and recommended best practices, {visitOurDocumentation}.',
+      'Run the following command on the host, replacing and with your information',
+  },
+  configureActivationKeysStep2rhc: {
+    id: 'configureActivationKeysStep2rhc',
+    description: 'If using RHC:',
+    defaultMessage: 'If using RHC:',
+  },
+  configureActivationKeysStep2rhcCommand: {
+    id: 'configureActivationKeysStep2rhcCommand',
+    description:
+      'rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>',
+    defaultMessage:
+      'rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>',
+  },
+  configureActivationKeysStep2InsightsClient: {
+    id: 'configureActivationKeysStep2InsightsClient',
+    description: 'If using Insights-Client:',
+    defaultMessage: 'If using Insights-Client:',
+  },
+  configureActivationKeysStep2SubManagerCommand: {
+    id: 'configureActivationKeysStep2SubManagerCommand',
+    description:
+      'subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>',
+    defaultMessage:
+      'subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>',
+  },
+  configureActivationKeysStep2InsightsClientCommand: {
+    id: 'configureActivationKeysStep2InsightsClientCommand',
+    description: 'insights-client --register',
+    defaultMessage: 'insights-client --register',
+  },
+  insightsWithActivationKeysNote: {
+    id: 'insightsWithActivationKeysNote',
+    description: 'Note about Insights with activation keys',
+    defaultMessage:
+      'Note: To read more about using Red Hat Insights with activation keys, {visitOurDocumentation}. If you need to migrate from basic authentication, refer to this {knowledgeBaseArticle}.',
   },
   visitOurDocumentation: {
     id: 'visitOurDocumentation',

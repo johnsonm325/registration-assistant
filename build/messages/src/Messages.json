@@ -47,25 +47,37 @@
     "defaultMessage": "Combines the flexible and powerful infrastructure management capabilities of Red Hat Satellite with the ability to execute remediation plans from Red Hat Insights",
     "description": "Combines the flexible and powerful infrastructure management capabilities of Red Hat Satellite with the ability to execute remediation plans from Red Hat Insights"
   },
-  "configureBasicAuthStep1": {
-    "defaultMessage": "Modify the auto_config= value to FALSE",
-    "description": "Modify the auto_config= value to FALSE"
+  "configureActivationKeysStep1": {
+    "defaultMessage": "Generate or obtain an activation key ID on the {hybridCloudConsole}",
+    "description": "Generate or obtain an activation key ID on the {hybridCloudConsole}"
   },
-  "configureBasicAuthStep2": {
-    "defaultMessage": "Add your Red Hat SSO username to username",
-    "description": "Add your Red Hat SSO username to username"
+  "configureActivationKeysStep2": {
+    "defaultMessage": "Run the following command on the host, replacing and with your information",
+    "description": "Run the following command on the host, replacing and with your information"
   },
-  "configureBasicAuthStep3": {
-    "defaultMessage": "Add your Red Hat SSO password to password",
-    "description": "Add your Red Hat SSO password to password"
+  "configureActivationKeysStep2rhc": {
+    "description": "If using RHC:",
+    "defaultMessage": "If using RHC:"
   },
-  "configureBasicAuthStep4": {
-    "defaultMessage": "Save the configuration",
-    "description": "Save the configuration"
+  "configureActivationKeysStep2rhcCommand": {
+    "description":
+      "rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>",
+    "defaultMessage":
+      "rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>"
   },
-  "configureBasicAuthTitle": {
-    "defaultMessage": "Configure basic authentication in /etc/insights-client/insights-client.conf",
-    "description": "Configure basic authentication in insights-client.conf"
+  "configureActivationKeysStep2InsightsClient": {
+    "description": "If using Insights-Client:",
+    "defaultMessage": "If using Insights-Client:"
+  },
+  "configureActivationKeysStep2SubManagerCommand": {
+    "description":
+      "subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>",
+    "defaultMessage":
+      "subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>"
+  },
+  "configureActivationKeysStep2InsightsClientCommand": {
+    "description": "insights-client --register",
+    "defaultMessage": "insights-client --register"
   },
   "configureClient": {
     "defaultMessage": "Configure insights-client playbook",
@@ -104,7 +116,7 @@
     "description": "Deploy Red Hat Insights on your cloud infrastructure title"
   },
   "deployInsightsOnCloudText": {
-    "defaultMessage": "The following guidance is user who wish to deploy Red Hat Insights on an existing, cloud marketplace-purchased Red Hat Enterprise Linux (RHEL) system managed by Red Hat Update Infrastructure (RHUI). This include on-demand, hourly systems purchased from CCSP marketplace, as well as systems deployed from Red Hat Gold Images in AWS. This procedure involves the following tasks:",
+    "defaultMessage": "Follow these steps to deploy Red Hat Insights on an existing, cloud marketplace-purchased Red Hat Enterprise (RHEL) system managed by Red Hat Update Infrastructure (RHUI). This includes on-demand, hourly systems purchased from CCSP marketplace, as well as systems deployed from Red Hat Gold Images in AWS. To deploy Red Hat Insights:",
     "description": "Deploy Red Hat Insights on your cloud infrastructure text"
   },
   "deployRHI": {
@@ -267,6 +279,10 @@
     "defaultMessage": "How to access Red Hat Insights through a firewall/Proxy",
     "description": "How to access Red Hat Insights through a firewall/Proxy"
   },
+  "hybridCloudConsole": {
+    "description": "Hybrid Cloud Console",
+    "defaultMessage": "Hybrid Cloud Console"
+  },
   "ifYouHaveProblems": {
     "defaultMessage": "If you have problems connecting to Red Hat Insights, ensure that your certificates are up-to-date. Refresh your subscription manifest to update your certificates.",
     "description": "If you have problems connecting to Red Hat Insights, ensure that your certificates are up-to-date. Refresh your subscription manifest to update your certificates."
@@ -279,9 +295,9 @@
     "defaultMessage": "The Insights registration assistant will guide you through the setup process for the Red Hat Insights Client. You will be prompted with a series of questions about your environment to provide you with setup instructions tailored for your environment.",
     "description": "The Insights registration assistant will"
   },
-  "insightsWithBasicAuthNote": {
-    "defaultMessage": "Note: To read more about using Red Hat Insights with basic authentication and recommended best practices, {visitOurDocumentation}.",
-    "description": "Note about Insights with basic authentication"
+  "insightsWithActivationKeysNote": {
+    "defaultMessage": "Note: To read more about using Red Hat Insights with activation keys, {visitOurDocumentation}. If you need to migrate from basic authentication, refer to this {knowledgeBaseArticle}.",
+    "description": "Note about Insights with activations keys"
   },
   "installAndConfigure": {
     "defaultMessage": "Install and configure your puppet module",

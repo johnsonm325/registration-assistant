@@ -40,6 +40,7 @@ import React from 'react';
 import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
 import { Icon } from '@patternfly/react-core';
+import RegAssistCodeBlock from '../../Components/RegAssistCodeBlock/RegAssistCodeBlock.js';
 
 const learnMore = (intl, url = '#') => (
   <a className="learnMore ins-c-learn-more" href={url}>
@@ -533,36 +534,61 @@ const schema = (intl) => ({
       name: 'rhui-last-part',
       label: (
         <React.Fragment>
-          <Title headingLevel="h3" size="md">
-            {intl.formatMessage(messages.configureBasicAuthTitle)}
-          </Title>
           <TextList component={TextListVariants.ol}>
             <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep1)}
+              {intl.formatMessage(messages.configureActivationKeysStep1, {
+                hybridCloudConsole: (
+                  <a href="https://console.redhat.com/insights/connector/activation-keys">
+                    {intl.formatMessage(messages.hybridCloudConsole)}
+                  </a>
+                ),
+              })}
             </TextListItem>
             <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep2)}
-            </TextListItem>
-            <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep3)}
-            </TextListItem>
-            <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep4)}
+              {intl.formatMessage(messages.configureActivationKeysStep2)}
+              <TextList>
+                <TextListItem>
+                  {intl.formatMessage(messages.configureActivationKeysStep2rhc)}
+                  <RegAssistCodeBlock
+                    code={[
+                      intl.formatMessage(
+                        messages.configureActivationKeysStep2rhcCommand
+                      ),
+                    ]}
+                  />
+                </TextListItem>
+                <TextListItem>
+                  {intl.formatMessage(
+                    messages.configureActivationKeysStep2InsightsClient
+                  )}
+                  <RegAssistCodeBlock
+                    code={[
+                      intl.formatMessage(
+                        messages.configureActivationKeysStep2SubManagerCommand
+                      ),
+                      intl.formatMessage(
+                        messages.configureActivationKeysStep2InsightsClientCommand
+                      ),
+                    ]}
+                  />
+                </TextListItem>
+              </TextList>
             </TextListItem>
           </TextList>
           <Text component={TextVariants.small}>
-            {intl.formatMessage(messages.insightsWithBasicAuthNote, {
+            {intl.formatMessage(messages.insightsWithActivationKeysNote, {
               visitOurDocumentation: (
-                <a href="https://access.redhat.com/articles/4038251">
+                <a href="https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/index">
+                  {intl.formatMessage(messages.visitOurDocumentation)}
+                </a>
+              ),
+              knowledgeBaseArticle: (
+                <a href="https://access.redhat.com/articles/7040601">
                   {intl.formatMessage(messages.visitOurDocumentation)}
                 </a>
               ),
             })}
           </Text>
-          <Title headingLevel="h3" size="md">
-            {intl.formatMessage(messages.registerInsightsClient)}
-          </Title>
-          {rhelNoAutomationSnippet(intl)}
         </React.Fragment>
       ),
       condition: [
