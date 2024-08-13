@@ -7,7 +7,7 @@ import {
   ClipboardCopyButton,
 } from '@patternfly/react-core';
 
-const RegAssistCodeBlock = ({ code }) => {
+const RegAssistCodeBlock = ({ code = [] }) => {
   const [copied, setCopied] = React.useState(false);
 
   const clipboardCopyFunc = (event, text) => {
@@ -38,7 +38,10 @@ const RegAssistCodeBlock = ({ code }) => {
   );
 
   return (
-    <CodeBlock style={{ marginBottom: '24px' }} actions={actions}>
+    <CodeBlock
+      style={{ marginBottom: 'var(--pf-v5-global--spacer--lg)' }}
+      actions={actions}
+    >
       {code.map((line, idx) => (
         <CodeBlockCode key={`code-block-line-${idx}`}>{line}</CodeBlockCode>
       ))}

@@ -47,38 +47,6 @@
     "defaultMessage": "Combines the flexible and powerful infrastructure management capabilities of Red Hat Satellite with the ability to execute remediation plans from Red Hat Insights",
     "description": "Combines the flexible and powerful infrastructure management capabilities of Red Hat Satellite with the ability to execute remediation plans from Red Hat Insights"
   },
-  "configureActivationKeysStep1": {
-    "defaultMessage": "Generate or obtain an activation key ID on the {hybridCloudConsole}",
-    "description": "Generate or obtain an activation key ID on the {hybridCloudConsole}"
-  },
-  "configureActivationKeysStep2": {
-    "defaultMessage": "Run the following command on the host, replacing and with your information",
-    "description": "Run the following command on the host, replacing and with your information"
-  },
-  "configureActivationKeysStep2rhc": {
-    "description": "If using RHC:",
-    "defaultMessage": "If using RHC:"
-  },
-  "configureActivationKeysStep2rhcCommand": {
-    "description":
-      "rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>",
-    "defaultMessage":
-      "rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>"
-  },
-  "configureActivationKeysStep2InsightsClient": {
-    "description": "If using Insights-Client:",
-    "defaultMessage": "If using Insights-Client:"
-  },
-  "configureActivationKeysStep2SubManagerCommand": {
-    "description":
-      "subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>",
-    "defaultMessage":
-      "subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>"
-  },
-  "configureActivationKeysStep2InsightsClientCommand": {
-    "description": "insights-client --register",
-    "defaultMessage": "insights-client --register"
-  },
   "configureClient": {
     "defaultMessage": "Configure insights-client playbook",
     "description": "Configure insights-client tab"
@@ -114,10 +82,6 @@
   "deployInsightsOnCloudInfra": {
     "defaultMessage": "Deploy Red Hat Insights on your cloud infrastructure",
     "description": "Deploy Red Hat Insights on your cloud infrastructure title"
-  },
-  "deployInsightsOnCloudText": {
-    "defaultMessage": "Follow these steps to deploy Red Hat Insights on an existing, cloud marketplace-purchased Red Hat Enterprise (RHEL) system managed by Red Hat Update Infrastructure (RHUI). This includes on-demand, hourly systems purchased from CCSP marketplace, as well as systems deployed from Red Hat Gold Images in AWS. To deploy Red Hat Insights:",
-    "description": "Deploy Red Hat Insights on your cloud infrastructure text"
   },
   "deployRHI": {
     "defaultMessage": "Deploy Red Hat Insights using Puppet in Satellite",
@@ -279,10 +243,6 @@
     "defaultMessage": "How to access Red Hat Insights through a firewall/Proxy",
     "description": "How to access Red Hat Insights through a firewall/Proxy"
   },
-  "hybridCloudConsole": {
-    "description": "Hybrid Cloud Console",
-    "defaultMessage": "Hybrid Cloud Console"
-  },
   "ifYouHaveProblems": {
     "defaultMessage": "If you have problems connecting to Red Hat Insights, ensure that your certificates are up-to-date. Refresh your subscription manifest to update your certificates.",
     "description": "If you have problems connecting to Red Hat Insights, ensure that your certificates are up-to-date. Refresh your subscription manifest to update your certificates."
@@ -295,10 +255,6 @@
     "defaultMessage": "The Insights registration assistant will guide you through the setup process for the Red Hat Insights Client. You will be prompted with a series of questions about your environment to provide you with setup instructions tailored for your environment.",
     "description": "The Insights registration assistant will"
   },
-  "insightsWithActivationKeysNote": {
-    "defaultMessage": "Note: To read more about using Red Hat Insights with activation keys, {visitOurDocumentation}. If you need to migrate from basic authentication, refer to this {knowledgeBaseArticle}.",
-    "description": "Note about Insights with activations keys"
-  },
   "installAndConfigure": {
     "defaultMessage": "Install and configure your puppet module",
     "description": "Install and configure your puppet module"
@@ -306,10 +262,6 @@
   "installAnsible": {
     "defaultMessage": "Install Ansible and get started",
     "description": "Install ansible tab message"
-  },
-  "installInsightsClient": {
-    "defaultMessage": "Install the Insights client on each system",
-    "description": "Install the Insights client on each system"
   },
   "installSystemRoles": {
     "defaultMessage": "Installing RHEL System Roles and Ansible",
@@ -582,10 +534,6 @@
   "viewInsightsDashboard": {
     "defaultMessage": "View Insights dashboard",
     "description": "View Insights dashboard"
-  },
-  "visitOurDocumentation": {
-    "defaultMessage": "visit our documentation",
-    "description": "visit our documentation"
   },
   "workWithPlaybook": {
     "defaultMessage": "Working With Playbooks",

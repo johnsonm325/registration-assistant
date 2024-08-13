@@ -503,7 +503,12 @@ const schema = (intl) => ({
               2
             )}
             <Text component={TextVariants.p}>
-              {intl.formatMessage(messages.deployInsightsOnCloudText)}
+              Follow these steps to deploy Red Hat Insights on an existing,
+              cloud marketplace-purchased Red Hat Enterprise (RHEL) system
+              managed by Red Hat Update Infrastructure (RHUI). This includes
+              on-demand, hourly systems purchased from CCSP marketplace, as well
+              as systems deployed from Red Hat Gold Images in AWS. To deploy Red
+              Hat Insights:
             </Text>
           </TextContent>
         </Group>
@@ -519,7 +524,7 @@ const schema = (intl) => ({
       label: (
         <React.Fragment>
           <Title headingLevel="h3" size="md">
-            {intl.formatMessage(messages.installInsightsClient)}
+            Install the Insights client on each system
           </Title>
           {installInsightsCodeSnippet}
         </React.Fragment>
@@ -536,39 +541,32 @@ const schema = (intl) => ({
         <React.Fragment>
           <TextList component={TextListVariants.ol}>
             <TextListItem>
-              {intl.formatMessage(messages.configureActivationKeysStep1, {
-                hybridCloudConsole: (
-                  <a href="https://console.redhat.com/insights/connector/activation-keys">
-                    {intl.formatMessage(messages.hybridCloudConsole)}
-                  </a>
-                ),
-              })}
+              Generate or obtain an activation key ID on the{' '}
+              <a
+                href="/insights/connector/activation-keys"
+                target="blank"
+                rel="noopener noreferrer"
+              >
+                Hybrid Cloud Console
+              </a>
             </TextListItem>
             <TextListItem>
-              {intl.formatMessage(messages.configureActivationKeysStep2)}
+              {`Run the following command on the host. Replace <activation_key_name> and <organization_ID> with your information.`}
               <TextList>
                 <TextListItem>
-                  {intl.formatMessage(messages.configureActivationKeysStep2rhc)}
+                  If using RHC:
                   <RegAssistCodeBlock
                     code={[
-                      intl.formatMessage(
-                        messages.configureActivationKeysStep2rhcCommand
-                      ),
+                      'rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>',
                     ]}
                   />
                 </TextListItem>
                 <TextListItem>
-                  {intl.formatMessage(
-                    messages.configureActivationKeysStep2InsightsClient
-                  )}
+                  If using Insights-Client:
                   <RegAssistCodeBlock
                     code={[
-                      intl.formatMessage(
-                        messages.configureActivationKeysStep2SubManagerCommand
-                      ),
-                      intl.formatMessage(
-                        messages.configureActivationKeysStep2InsightsClientCommand
-                      ),
+                      'subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>',
+                      'insights-client --register',
                     ]}
                   />
                 </TextListItem>
@@ -576,18 +574,24 @@ const schema = (intl) => ({
             </TextListItem>
           </TextList>
           <Text component={TextVariants.small}>
-            {intl.formatMessage(messages.insightsWithActivationKeysNote, {
-              visitOurDocumentation: (
-                <a href="https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/index">
-                  {intl.formatMessage(messages.visitOurDocumentation)}
-                </a>
-              ),
-              knowledgeBaseArticle: (
-                <a href="https://access.redhat.com/articles/7040601">
-                  {intl.formatMessage(messages.visitOurDocumentation)}
-                </a>
-              ),
-            })}
+            Note: To read more about using Red Hat Insights with activation
+            keys,{' '}
+            <a
+              href="https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/index"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              visit our documentation
+            </a>
+            . If you need to migrate from basic authentication, refer to this{' '}
+            <a
+              href="https://access.redhat.com/articles/7040601"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              knowledge base article
+            </a>
+            .{}
           </Text>
         </React.Fragment>
       ),
