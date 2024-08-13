@@ -47,26 +47,6 @@
     "defaultMessage": "Combines the flexible and powerful infrastructure management capabilities of Red Hat Satellite with the ability to execute remediation plans from Red Hat Insights",
     "description": "Combines the flexible and powerful infrastructure management capabilities of Red Hat Satellite with the ability to execute remediation plans from Red Hat Insights"
   },
-  "configureBasicAuthStep1": {
-    "defaultMessage": "Modify the auto_config= value to FALSE",
-    "description": "Modify the auto_config= value to FALSE"
-  },
-  "configureBasicAuthStep2": {
-    "defaultMessage": "Add your Red Hat SSO username to username",
-    "description": "Add your Red Hat SSO username to username"
-  },
-  "configureBasicAuthStep3": {
-    "defaultMessage": "Add your Red Hat SSO password to password",
-    "description": "Add your Red Hat SSO password to password"
-  },
-  "configureBasicAuthStep4": {
-    "defaultMessage": "Save the configuration",
-    "description": "Save the configuration"
-  },
-  "configureBasicAuthTitle": {
-    "defaultMessage": "Configure basic authentication in /etc/insights-client/insights-client.conf",
-    "description": "Configure basic authentication in insights-client.conf"
-  },
   "configureClient": {
     "defaultMessage": "Configure insights-client playbook",
     "description": "Configure insights-client tab"
@@ -102,10 +82,6 @@
   "deployInsightsOnCloudInfra": {
     "defaultMessage": "Deploy Red Hat Insights on your cloud infrastructure",
     "description": "Deploy Red Hat Insights on your cloud infrastructure title"
-  },
-  "deployInsightsOnCloudText": {
-    "defaultMessage": "The following guidance is user who wish to deploy Red Hat Insights on an existing, cloud marketplace-purchased Red Hat Enterprise Linux (RHEL) system managed by Red Hat Update Infrastructure (RHUI). This include on-demand, hourly systems purchased from CCSP marketplace, as well as systems deployed from Red Hat Gold Images in AWS. This procedure involves the following tasks:",
-    "description": "Deploy Red Hat Insights on your cloud infrastructure text"
   },
   "deployRHI": {
     "defaultMessage": "Deploy Red Hat Insights using Puppet in Satellite",
@@ -279,10 +255,6 @@
     "defaultMessage": "The Insights registration assistant will guide you through the setup process for the Red Hat Insights Client. You will be prompted with a series of questions about your environment to provide you with setup instructions tailored for your environment.",
     "description": "The Insights registration assistant will"
   },
-  "insightsWithBasicAuthNote": {
-    "defaultMessage": "Note: To read more about using Red Hat Insights with basic authentication and recommended best practices, {visitOurDocumentation}.",
-    "description": "Note about Insights with basic authentication"
-  },
   "installAndConfigure": {
     "defaultMessage": "Install and configure your puppet module",
     "description": "Install and configure your puppet module"
@@ -290,10 +262,6 @@
   "installAnsible": {
     "defaultMessage": "Install Ansible and get started",
     "description": "Install ansible tab message"
-  },
-  "installInsightsClient": {
-    "defaultMessage": "Install the Insights client on each system",
-    "description": "Install the Insights client on each system"
   },
   "installSystemRoles": {
     "defaultMessage": "Installing RHEL System Roles and Ansible",
@@ -566,10 +534,6 @@
   "viewInsightsDashboard": {
     "defaultMessage": "View Insights dashboard",
     "description": "View Insights dashboard"
-  },
-  "visitOurDocumentation": {
-    "defaultMessage": "visit our documentation",
-    "description": "visit our documentation"
   },
   "workWithPlaybook": {
     "defaultMessage": "Working With Playbooks",

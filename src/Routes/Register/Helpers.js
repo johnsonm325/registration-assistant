@@ -40,6 +40,7 @@ import React from 'react';
 import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
 import { Icon } from '@patternfly/react-core';
+import RegAssistCodeBlock from '../../Components/RegAssistCodeBlock/RegAssistCodeBlock.js';
 
 const learnMore = (intl, url = '#') => (
   <a className="learnMore ins-c-learn-more" href={url}>
@@ -502,7 +503,12 @@ const schema = (intl) => ({
               2
             )}
             <Text component={TextVariants.p}>
-              {intl.formatMessage(messages.deployInsightsOnCloudText)}
+              Follow these steps to deploy Red Hat Insights on an existing,
+              cloud marketplace-purchased Red Hat Enterprise (RHEL) system
+              managed by Red Hat Update Infrastructure (RHUI). This includes
+              on-demand, hourly systems purchased from CCSP marketplace, as well
+              as systems deployed from Red Hat Gold Images in AWS. To deploy Red
+              Hat Insights:
             </Text>
           </TextContent>
         </Group>
@@ -518,7 +524,7 @@ const schema = (intl) => ({
       label: (
         <React.Fragment>
           <Title headingLevel="h3" size="md">
-            {intl.formatMessage(messages.installInsightsClient)}
+            Install the Insights client on each system
           </Title>
           {installInsightsCodeSnippet}
         </React.Fragment>
@@ -533,36 +539,60 @@ const schema = (intl) => ({
       name: 'rhui-last-part',
       label: (
         <React.Fragment>
-          <Title headingLevel="h3" size="md">
-            {intl.formatMessage(messages.configureBasicAuthTitle)}
-          </Title>
           <TextList component={TextListVariants.ol}>
             <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep1)}
+              Generate or obtain an activation key ID on the{' '}
+              <a
+                href="/insights/connector/activation-keys"
+                target="blank"
+                rel="noopener noreferrer"
+              >
+                Hybrid Cloud Console
+              </a>
             </TextListItem>
             <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep2)}
-            </TextListItem>
-            <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep3)}
-            </TextListItem>
-            <TextListItem>
-              {intl.formatMessage(messages.configureBasicAuthStep4)}
+              {`Run the following command on the host. Replace <activation_key_name> and <organization_ID> with your information.`}
+              <TextList>
+                <TextListItem>
+                  If using RHC:
+                  <RegAssistCodeBlock
+                    code={[
+                      'rhc connect --activation-key=<activation_key_name> --organization=<organization_ID>',
+                    ]}
+                  />
+                </TextListItem>
+                <TextListItem>
+                  If using Insights-Client:
+                  <RegAssistCodeBlock
+                    code={[
+                      'subscription-manager register --activationkey=<activation_key_name> --org=<organization_ID>',
+                      'insights-client --register',
+                    ]}
+                  />
+                </TextListItem>
+              </TextList>
             </TextListItem>
           </TextList>
           <Text component={TextVariants.small}>
-            {intl.formatMessage(messages.insightsWithBasicAuthNote, {
-              visitOurDocumentation: (
-                <a href="https://access.redhat.com/articles/4038251">
-                  {intl.formatMessage(messages.visitOurDocumentation)}
-                </a>
-              ),
-            })}
+            Note: To read more about using Red Hat Insights with activation
+            keys,{' '}
+            <a
+              href="https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/index"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              visit our documentation
+            </a>
+            . If you need to migrate from basic authentication, refer to this{' '}
+            <a
+              href="https://access.redhat.com/articles/7040601"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              knowledge base article
+            </a>
+            .{}
           </Text>
-          <Title headingLevel="h3" size="md">
-            {intl.formatMessage(messages.registerInsightsClient)}
-          </Title>
-          {rhelNoAutomationSnippet(intl)}
         </React.Fragment>
       ),
       condition: [

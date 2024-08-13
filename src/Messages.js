@@ -293,58 +293,10 @@ export default defineMessages({
     description: 'Deploy Red Hat Insights on your cloud infrastructure title',
     defaultMessage: 'Deploy Red Hat Insights on your cloud infrastructure',
   },
-  deployInsightsOnCloudText: {
-    id: 'deployInsightsOnCloudText',
-    description: 'Deploy Red Hat Insights on your cloud infrastructure text',
-    defaultMessage:
-      'The following guidance is user who wish to deploy Red Hat Insights on an existing, cloud marketplace-purchased Red Hat Enterprise Linux (RHEL) system managed by Red Hat Update Infrastructure (RHUI).  This include on-demand, hourly systems purchased from CCSP marketplace, as well as systems deployed from Red Hat Gold Images in AWS.  This procedure involves the following tasks:',
-  },
-  installInsightsClient: {
-    id: 'installInsightsClient',
-    description: 'Install the Insights client on each system',
-    defaultMessage: 'Install the Insights client on each system',
-  },
   registerInsightsClient: {
     id: 'registerInsightsClient',
     description: 'Register the system to Insights',
     defaultMessage: 'Register the system to Insights',
-  },
-  configureBasicAuthTitle: {
-    id: 'configureBasicAuthTitle',
-    description: 'Configure basic authentication in insights-client.conf',
-    defaultMessage:
-      'Configure basic authentication in /etc/insights-client/insights-client.conf',
-  },
-  configureBasicAuthStep1: {
-    id: 'configureBasicAuthStep1',
-    description: 'Modify the auto_config= value to FALSE',
-    defaultMessage: 'Modify the auto_config= value to FALSE',
-  },
-  configureBasicAuthStep2: {
-    id: 'configureBasicAuthStep2',
-    description: 'Add your Red Hat SSO username to username',
-    defaultMessage: 'Add your Red Hat SSO username to username',
-  },
-  configureBasicAuthStep3: {
-    id: 'configureBasicAuthStep3',
-    description: 'Add your Red Hat SSO password to password',
-    defaultMessage: 'Add your Red Hat SSO password to password',
-  },
-  configureBasicAuthStep4: {
-    id: 'configureBasicAuthStep4',
-    description: 'Save the configuration',
-    defaultMessage: 'Save the configuration',
-  },
-  insightsWithBasicAuthNote: {
-    id: 'insightsWithBasicAuthNote',
-    description: 'Note about Insights with basic authentication',
-    defaultMessage:
-      'Note: To read more about using Red Hat Insights with basic authentication and recommended best practices, {visitOurDocumentation}.',
-  },
-  visitOurDocumentation: {
-    id: 'visitOurDocumentation',
-    description: 'visit our documentation',
-    defaultMessage: 'visit our documentation',
   },
   dataCollection: {
     id: 'dataCollection',
