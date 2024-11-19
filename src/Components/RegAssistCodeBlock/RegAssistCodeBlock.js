@@ -7,7 +7,7 @@ import {
   ClipboardCopyButton,
 } from '@patternfly/react-core';
 
-const RegAssistCodeBlock = ({ code = [] }) => {
+const RegAssistCodeBlock = ({ code = [], classname }) => {
   const [copied, setCopied] = React.useState(false);
 
   const clipboardCopyFunc = (event, text) => {
@@ -37,19 +37,25 @@ const RegAssistCodeBlock = ({ code = [] }) => {
     </>
   );
 
+  /*remove code.map when new reg Assistant is implemented*/
   return (
     <CodeBlock
-      style={{ marginBottom: 'var(--pf-v5-global--spacer--lg)' }}
+      className={`pf-v5-u-mb-lg pf-v5-u-mt-md ${classname}`}
       actions={actions}
     >
-      {code.map((line, idx) => (
-        <CodeBlockCode key={`code-block-line-${idx}`}>{line}</CodeBlockCode>
-      ))}
+      {Array.isArray(code) ? (
+        code.map((line, idx) => (
+          <CodeBlockCode key={`code-block-line-${idx}`}>{line}</CodeBlockCode>
+        ))
+      ) : (
+        <CodeBlockCode key={`code-block-line`}>{code}</CodeBlockCode>
+      )}
     </CodeBlock>
   );
 };
 
 RegAssistCodeBlock.propTypes = {
+  classname: PropTypes.string,
   code: PropTypes.array,
 };
 
