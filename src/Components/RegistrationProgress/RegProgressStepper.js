@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProgressStep, ProgressStepper } from '@patternfly/react-core';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
@@ -7,9 +8,20 @@ import FourthStep from './FourthStep';
 import RegAssistantFooter from './RegAssistantFooter';
 
 const RegProgessStepper = () => {
+  const chrome = useChrome();
   const [step, setStep] = useState(0);
   const [selectedKey, setSelectedKey] = useState('Select activation key');
   const [operatingSystem, setOperatingSystem] = useState();
+  const [orgId, setOrgId] = useState();
+
+  const fetchOrgId = async () => {
+    const user = await chrome.auth.getUser();
+    setOrgId(user.identity.org_id);
+  };
+
+  useEffect(() => {
+    fetchOrgId();
+  }, []);
 
   const setVariant = (value) => {
     if (step === value) {
@@ -60,6 +72,7 @@ const RegProgessStepper = () => {
             step >= 2 && (
               <ThirdStep
                 OperatingSystemComponent={operatingSystem.content}
+                orgId={orgId}
                 selectedKey={selectedKey}
               />
             )

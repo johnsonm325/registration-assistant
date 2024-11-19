@@ -45,10 +45,7 @@ const NewRegister = () => {
           </a>
         </TextContent>
       </PageHeader>
-      <PageSection
-        className="ins-c-registration-assistant ins-c-overflow-content"
-        variant={PageSectionVariants.light}
-      >
+      <PageSection variant={PageSectionVariants.light}>
         <RegProgessStepper />
       </PageSection>
     </React.Fragment>
