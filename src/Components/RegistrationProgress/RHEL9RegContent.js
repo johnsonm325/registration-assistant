@@ -24,7 +24,10 @@ const RHEL9RegContent = ({ orgId, selectedKey, setStep }) => {
         <TextListItem>
           <span>Connect to Insights.</span>
           <br />
-          <span>This allows Red Hat Insights to provide recommendations.</span>
+          <span>
+            This allows Red Hat Insights to provide analytics and run
+            remediations.
+          </span>
           <RegAssistCodeBlock
             code={rhcConnect(selectedKey, orgId)}
             setStep={setStep}

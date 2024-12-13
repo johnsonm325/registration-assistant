@@ -23,8 +23,8 @@ const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
   return (
     <TextContent>
       <Text component={TextVariants.p}>
-        Registering CentOS Linux to Insights is only supported for the
-        conversion of CentOS Linux to Red Hat Enterprise Linux using Red Hat
+        Registering CentOS Linux 7 to Insights is only supported for the
+        conversion of CentOS Linux 7 to Red Hat Enterprise Linux using Red Hat
         Insights.{' '}
         <Text
           component={TextVariants.a}

@@ -9,13 +9,15 @@ const ViewInventoryStep = () => {
         <TextList isPlain>
           <TextListItem>
             <span>
-              Navigate to{' '}
+              Navigate to the{' '}
               <InsightsLink to="/" app="inventory">
                 Inventory page
               </InsightsLink>
             </span>
             <br />
-            <span>Your system could take a couple of minutes to appear.</span>
+            <span>
+              It can take a couple of minutes for your system to appear.
+            </span>
           </TextListItem>
         </TextList>
       </TextContent>

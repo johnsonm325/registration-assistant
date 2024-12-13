@@ -12,7 +12,7 @@ import {
 export const operatingSystemList = [
   {
     id: centosRadio,
-    name: 'CentOS Linux',
+    name: 'CentOS Linux 7',
     content: CentosLinuxRegContent,
   },
   {
