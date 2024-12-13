@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import RegAssistantFooter from '../RegAssistantFooter';
 import { operatingSystemList } from '../operatingSystemConstants';
+import { AUTOMATE_WITH_SATELLITE } from '../../../constants';
 
 describe('RegAssistantFooter', () => {
   it('should display proper footer for rhel 7', async () => {
@@ -13,11 +14,7 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(
-      screen.getByText(
-        /looking for ways to automate with satellite\? read this article:/i
-      )
-    ).toBeVisible();
+    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
 
     expect(
       screen.queryAllByText(
@@ -33,11 +30,7 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(
-      screen.getByText(
-        /looking for ways to automate with satellite\? read this article:/i
-      )
-    ).toBeVisible();
+    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
 
     expect(
       screen.queryAllByText(
@@ -53,17 +46,13 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(
-      screen.getByText(
-        /looking for ways to automate with satellite\? read this article:/i
-      )
-    ).toBeVisible();
+    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
 
     expect(
-      screen.getByText(
+      screen.queryAllByText(
         /read more about remote host configuration \(rhc\) options and levels of connectivity:/i
       )
-    ).toBeVisible();
+    ).toHaveLength(0);
   });
 
   it('should display proper footer for rhel 9', async () => {
@@ -73,11 +62,7 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(
-      screen.getByText(
-        /looking for ways to automate with satellite\? read this article:/i
-      )
-    ).toBeVisible();
+    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
 
     expect(
       screen.getByText(

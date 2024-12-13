@@ -196,9 +196,9 @@ const FirstStep = ({
       </Select>
       <TextContent>
         <Text component={TextVariants.p}>
-          Manage activation keys on the{' '}
+          You can manage activation keys on the{' '}
           <InsightsLink to="/activation-keys" app="connector">
-            Activation keys page
+            Activation keys page.
           </InsightsLink>
         </Text>
       </TextContent>

@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { Icon, Text, TextContent, TextVariants } from '@patternfly/react-core';
 import { monitoringHostsLink, remoteHostConfigLink } from '../../constants';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
-import { centosRadio, rhel9Radio } from '../../constants';
+import { AUTOMATE_WITH_SATELLITE, rhel9Radio } from '../../constants';
 
 const RegAssistantFooter = ({ operatingSystem }) => {
   return (
     <TextContent style={{ marginTop: '24px' }}>
-      {(operatingSystem.id === centosRadio ||
-        operatingSystem.id === rhel9Radio) && (
+      {operatingSystem.id === rhel9Radio && (
         <Text component={TextVariants.p}>
           Read more about Remote host configuration (RHC) options and levels of
           connectivity:{' '}
@@ -27,9 +26,9 @@ const RegAssistantFooter = ({ operatingSystem }) => {
         </Text>
       )}
       <Text component={TextVariants.p}>
-        Looking for ways to automate with Satellite? Read this article:{' '}
+        {AUTOMATE_WITH_SATELLITE}{' '}
         <a rel="noopener noreferrer" target="_blank" href={monitoringHostsLink}>
-          Chapter9. Monitoring Hosts Using Red Hat Insights{' '}
+          Monitoring Hosts Using Red Hat Insights{' '}
           <Icon className="pf-v5-u-ml-xs">
             <ExternalLinkAltIcon />
           </Icon>

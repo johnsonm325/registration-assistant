@@ -33,7 +33,7 @@ const RHEL8RegContent = ({ orgId, selectedKey, setStep }) => {
         <TextListItem>
           <span>Connect to Insights.</span>
           <br />
-          <span>This allows Red Hat Insights to provide recommendations.</span>
+          <span>This allows Red Hat Insights to provide analytics.</span>
           <RegAssistCodeBlock code={insightsClientRegister} setStep={setStep} />
         </TextListItem>
         <TextListItem>
